@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopExpress - Tienda en Línea</title>
+    <!-- Tailwind CSS por CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Iconos de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    
+    <!-- Archivo de configuración PWA -->
+    <link rel="manifest" href="./manifest.json">
+
+    <!-- Color de la barra del navegador (Tema E-commerce / Emerald) -->
+    <meta name="theme-color" content="#059669"> 
+
+    <!-- Icono para dispositivos iOS -->
+    <link rel="apple-touch-icon" href="./images/icon-192x192.svg">
+</head>
+<body class="bg-gray-50 h-screen flex flex-col font-sans">
+
+    <!-- Header / Top App Bar -->
+    <header class="bg-emerald-600 text-white p-4 shadow-md sticky top-0 z-10 flex justify-between items-center">
+        <h1 class="text-xl font-bold flex items-center gap-2">
+            <i class="fa-solid fa-store"></i> ShopExpress
+        </h1>
+        <div class="flex items-center gap-3">
+            <button id="btn-sync" class="hover:text-emerald-200 transition" title="Sincronizar">
+                <i class="fa-solid fa-rotate"></i>
+            </button>
+            <!-- Acceso rápido al carrito con indicador -->
+            <a href="#" class="relative hover:text-emerald-200 transition">
+                <i class="fa-solid fa-bag-shopping text-xl"></i>
+                <span class="absolute -top-2 -right-2 bg-amber-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">2</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Área Principal de Contenido (Scrollable) -->
+    <main class="flex-1 overflow-y-auto p-4 pb-24" id="feed">
+        
+        <!-- Banner Promocional -->
+        <div class="bg-gradient-to-r from-emerald-500 to-teal-600 rounded-2xl p-4 text-white shadow-md mb-5 flex justify-between items-center">
+            <div>
+                <span class="bg-amber-400 text-emerald-950 text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wide">¡Oferta del día!</span>
+                <h2 class="text-lg font-bold mt-1">Envío gratis en tu primera compra</h2>
+                <p class="text-xs text-emerald-100 mt-0.5">Usa el cupón: <span class="font-mono font-bold underline">BIENVENIDA</span></p>
+            </div>
+            <i class="fa-solid fa-tags text-4xl text-emerald-200/50"></i>
+        </div>
+
+        <!-- Categorías Rápidas -->
+        <div class="flex gap-2 overflow-x-auto pb-2 mb-4 scrollbar-none">
+            <button class="bg-emerald-600 text-white px-4 py-1.5 rounded-full text-xs font-medium whitespace-nowrap shadow-sm">Todos</button>
+            <button class="bg-white text-gray-600 border border-gray-200 px-4 py-1.5 rounded-full text-xs font-medium whitespace-nowrap hover:bg-gray-100 transition">Tecnología</button>
+            <button class="bg-white text-gray-600 border border-gray-200 px-4 py-1.5 rounded-full text-xs font-medium whitespace-nowrap hover:bg-gray-100 transition">Ropa</button>
+            <button class="bg-white text-gray-600 border border-gray-200 px-4 py-1.5 rounded-full text-xs font-medium whitespace-nowrap hover:bg-gray-100 transition">Hogar</button>
+            <button class="bg-white text-gray-600 border border-gray-200 px-4 py-1.5 rounded-full text-xs font-medium whitespace-nowrap hover:bg-gray-100 transition">Accesorios</button>
+        </div>
+
+        <!-- Grid de Productos -->
+        <div class="grid grid-cols-2 gap-3" id="product-grid">
+            
+            <!-- Producto 1 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col justify-between">
+                <div>
+                    <div class="bg-gray-200 h-36 flex items-center justify-center text-gray-400 relative">
+                        <i class="fa-solid fa-image text-3xl"></i>
+                        <span class="absolute top-2 left-2 bg-red-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded">15% OFF</span>
+                    </div>
+                    <div class="p-3">
+                        <span class="text-[10px] text-gray-400 uppercase tracking-wider">Tecnología</span>
+                        <h3 class="font-semibold text-gray-800 text-sm leading-tight mt-0.5">Audífonos Inalámbricos Pro</h3>
+                        <div class="flex items-center gap-1 mt-1 text-amber-400 text-[10px]">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <span class="text-gray-400 text-[10px] ml-1">(42)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-3 pt-0 flex items-center justify-between mt-2">
+                    <div>
+                        <span class="text-xs text-gray-400 line-through block">$1,150</span>
+                        <span class="font-bold text-emerald-600 text-sm">$979</span>
+                    </div>
+                    <button class="bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white w-8 h-8 rounded-lg flex items-center justify-center transition">
+                        <i class="fa-solid fa-plus text-xs"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col justify-between">
+                <div>
+                    <div class="bg-gray-200 h-36 flex items-center justify-center text-gray-400 relative">
+                        <i class="fa-solid fa-image text-3xl"></i>
+                    </div>
+                    <div class="p-3">
+                        <span class="text-[10px] text-gray-400 uppercase tracking-wider">Accesorios</span>
+                        <h3 class="font-semibold text-gray-800 text-sm leading-tight mt-0.5">Mochila Urbana Impermeable</h3>
+                        <div class="flex items-center gap-1 mt-1 text-amber-400 text-[10px]">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="text-gray-400 text-[10px] ml-1">(18)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-3 pt-0 flex items-center justify-between mt-2">
+                    <div>
+                        <span class="text-xs text-gray-400 opacity-0 block">&nbsp;</span>
+                        <span class="font-bold text-emerald-600 text-sm">$650</span>
+                    </div>
+                    <button class="bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white w-8 h-8 rounded-lg flex items-center justify-center transition">
+                        <i class="fa-solid fa-plus text-xs"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Botón Flotante de Ayuda o Soporte (FAB) -->
+    <button class="fixed bottom-20 right-4 bg-emerald-600 text-white w-14 h-14 rounded-full shadow-lg text-xl flex items-center justify-center hover:bg-emerald-700 transition" title="Soporte por WhatsApp">
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+    </button>
+
+    <!-- Barra de Navegación Inferior (Bottom Navigation Adaptada a Tienda) -->
+    <nav class="bg-white border-t border-gray-200 fixed bottom-0 w-full flex justify-around p-3 text-gray-400 pb-safe">
+        <a href="#" class="flex flex-col items-center text-emerald-600">
+            <i class="fa-solid fa-shop text-xl mb-1"></i>
+            <span class="text-[10px]">Tienda</span>
+        </a>
+        <a href="#" class="flex flex-col items-center hover:text-emerald-600 transition">
+            <i class="fa-solid fa-magnifying-glass text-xl mb-1"></i>
+            <span class="text-[10px]">Buscar</span>
+        </a>
+        <a href="#" class="flex flex-col items-center hover:text-emerald-600 transition relative">
+            <i class="fa-solid fa-bag-shopping text-xl mb-1"></i>
+            <span class="text-[10px]">Carrito</span>
+            <span class="absolute top-0 right-3 bg-amber-500 text-white text-[9px] font-bold w-3.5 h-3.5 rounded-full flex items-center justify-center">2</span>
+        </a>
+        <a href="#" class="flex flex-col items-center hover:text-emerald-600 transition">
+            <i class="fa-regular fa-user text-xl mb-1"></i>
+            <span class="text-[10px]">Cuenta</span>
+        </a>
+    </nav>
+
+    <script src="../src/js/app.js"></script>
+</body>
+</html>

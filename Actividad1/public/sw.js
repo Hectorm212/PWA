@@ -1,5 +1,3 @@
-// sw.js - Service Worker con Cache API
-
 // 1. Definimos el nombre y la versión de la caché estática
 const CACHE_NAME = 'devconnect-shell-v1';
 

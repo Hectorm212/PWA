@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <!-- Gradiente de fondo -->
+    <linearGradient id="bg-grad-512" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    
+    <!-- Filtro de sombra para mayor resolución -->
+    <filter id="shadow-512" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Fondo circular para App Icon -->
+  <circle cx="256" cy="256" r="235" fill="url(#bg-grad-512)"/>
+
+  <!-- Icono de Bolsa de Compras con detalle -->
+  <g filter="url(#shadow-512)" transform="translate(128, 118)">
+    <!-- Asas de la bolsa -->
+    <path d="M 85 80 C 85 32, 171 32, 171 80" fill="none" stroke="#f59e0b" stroke-width="18" stroke-linecap="round"/>
+    
+    <!-- Cuerpo de la bolsa -->
+    <path d="M 42 80 L 214 80 L 235 256 C 235 267, 224 277, 213 277 L 43 277 C 32 277, 21 267, 21 256 Z" fill="#ffffff"/>
+    
+    <!-- Inicial / Detalle central (S de ShopExpress) -->
+    <path d="M 144 138 C 144 120, 112 118, 112 142 C 112 168, 144 165, 144 192 C 144 216, 112 214, 112 197" fill="none" stroke="#059669" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
