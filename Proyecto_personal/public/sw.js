@@ -40,4 +40,5 @@ self.addEventListener('fetch', event => {
             .then(cache => cache.match(event.request))
             .then(response => response || fetch(event.request))
     );
+    console.log('SW: Interceptando solicitud de recurso:', event.request.url);
 });
